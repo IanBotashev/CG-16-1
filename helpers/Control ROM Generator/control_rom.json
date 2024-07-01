@@ -1,4 +1,8 @@
 {
   "NOP": [{"ccclr": 1, "pcinc": 1}],
-  "LDA": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"awrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}]
+  "LDA": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"awrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+  "LDX": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"xwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+  "LDY": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"ywrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+  "LDZ": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"zwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+  "LDB": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"bswrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}]
 }

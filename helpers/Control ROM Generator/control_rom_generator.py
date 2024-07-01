@@ -13,8 +13,7 @@ def main():
         json_data = json.load(f)
         for instruction in json_data:
             control_steps_remaining = control_steps_per_instruction
-            file_lines.append(f"#===================START {instruction}===================")
-            file_lines.append(f"{fetch_cycle_length}*0")
+            file_lines.append(f"{fetch_cycle_length}*0  # {instruction}")
             control_steps_remaining -= fetch_cycle_length
 
             for step in json_data[instruction]:
@@ -22,7 +21,6 @@ def main():
                 file_lines.append(hex(int(convert_microinstructions_to_binary(step), 2)))
 
             file_lines.append(f"{control_steps_remaining}*0")
-            file_lines.append(f"#===================END {instruction}===================")
 
     with open(output_file, "w") as f:
         for line in file_lines:
