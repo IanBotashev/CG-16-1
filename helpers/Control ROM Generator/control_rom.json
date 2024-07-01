@@ -1,0 +1,4 @@
+{
+  "NOP": [{"ccclr": 1, "pcinc": 1}],
+  "LDA": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"awrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}]
+}
