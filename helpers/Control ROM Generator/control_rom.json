@@ -63,9 +63,9 @@
   "CPY": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"awrite": 1, "yread": 1},  {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
   "CPZ": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"awrite": 1, "zread": 1},  {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
 
-  "JMP": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1, "ccclr": 1}],
-  "JSR": [{"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "pcread": 1}, {"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "flagsread": 1}, {"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1, "ccclr": 1, "pcinc": 1}],
-  "RTS": [{"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "flagswrite": 1}, {"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1}, {"pcinc": 1, "ccclr": 1}],
+  "JMP": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"pbcswrite": 1, "bsread": 1}, {"mmuread": 1, "pcwrite": 1, "ccclr": 1}],
+  "JSR": [{"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "pbcsread": 1}, {"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "pcread": 1}, {"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1, "ccclr": 1, "pcinc": 1}],
+  "RTS": [{"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1}, {"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "pbcswrite": 1}, {"pcinc": 1, "ccclr": 1}],
 
   "BCC": [{"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 0, "ccclr": 1}],
   "BCS": [{"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 1, "ccclr": 1}],
@@ -84,5 +84,6 @@
   "SEI": [{"disableinterrupts": 1, "pcinc": 1, "ccclr": 1}],
   "CPS": [{"pageclear": 1, "pcinc": 1, "ccclr": 1}],
   "SPS": [{"pageset": 1, "pcinc": 1, "ccclr": 1}],
-  "HLT": [{"haltclock": 1}]
+
+  "HLT": [{"haltclock": 1, "pcinc": 1, "ccclr": 1}]
 }

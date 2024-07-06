@@ -4147,6 +4147,34 @@
       </elementAttributes>
       <pos x="1820" y="2740"/>
     </visualElement>
+    <visualElement>
+      <elementName>Register</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Interrupt Register</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="2240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>aawrite</string>
+        </entry>
+      </elementAttributes>
+      <pos x="260" y="2280"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -5358,6 +5386,10 @@
       <p2 x="1560" y="2240"/>
     </wire>
     <wire>
+      <p1 x="280" y="2240"/>
+      <p2 x="320" y="2240"/>
+    </wire>
+    <wire>
       <p1 x="1100" y="960"/>
       <p2 x="1160" y="960"/>
     </wire>
@@ -5460,6 +5492,10 @@
     <wire>
       <p1 x="1460" y="2260"/>
       <p2 x="1560" y="2260"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="2260"/>
+      <p2 x="320" y="2260"/>
     </wire>
     <wire>
       <p1 x="180" y="980"/>
@@ -5568,6 +5604,10 @@
     <wire>
       <p1 x="1460" y="2280"/>
       <p2 x="1560" y="2280"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="2280"/>
+      <p2 x="320" y="2280"/>
     </wire>
     <wire>
       <p1 x="2160" y="1000"/>
@@ -5850,6 +5890,10 @@
       <p2 x="280" y="2120"/>
     </wire>
     <wire>
+      <p1 x="280" y="2120"/>
+      <p2 x="280" y="2240"/>
+    </wire>
+    <wire>
       <p1 x="280" y="1180"/>
       <p2 x="280" y="1400"/>
     </wire>
@@ -5948,6 +5992,10 @@
     <wire>
       <p1 x="300" y="1020"/>
       <p2 x="300" y="1140"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="2140"/>
+      <p2 x="300" y="2260"/>
     </wire>
     <wire>
       <p1 x="300" y="1140"/>
