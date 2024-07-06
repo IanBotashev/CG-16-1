@@ -1,3 +1,4 @@
+# MMU
 MMU takes in a 24-bit wide address and selects the appropriate RAM for reading and writing.
 
 There's 2 RAM units, General Purpose and Graphical.

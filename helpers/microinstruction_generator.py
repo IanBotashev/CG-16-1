@@ -48,6 +48,16 @@ microinstructions_map = {
     "flagswrite": 0,
     "readinstructionlow": 0,
     "readinstructionhigh": 0,
+    "stinc": 0,
+    "stdec": 0,
+    "stclr": 0,
+    "aluread": 0,
+    "aluselectxhigh": 0,
+    "condjump": "000",
+    "condjumpdesired": 0,
+    "haltclock": 0,
+    "pageset": 0,
+    "pageclear": 0,
 }
 
 

@@ -13,7 +13,7 @@ def main():
         json_data = json.load(f)
         for instruction in json_data:
             control_steps_remaining = control_steps_per_instruction
-            file_lines.append(f"{fetch_cycle_length}*0  # {instruction}")
+            file_lines.append(f"{fetch_cycle_length}*0  # {instruction}, {len(json_data[instruction])} cycle(s)")
             control_steps_remaining -= fetch_cycle_length
 
             for step in json_data[instruction]:
