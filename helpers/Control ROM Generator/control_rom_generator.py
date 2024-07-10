@@ -3,6 +3,10 @@ from helpers.microinstruction_generator import convert_microinstructions_to_bina
 
 
 def main():
+    """
+    Converts a .json file with microinstructions into a hex file saved in the hex folder. Used for the control rom.
+    :return:
+    """
     json_file = "./control_rom.json"
     output_file = "../../hex/control_rom.hex"  # woops...
     fetch_cycle_length = 2

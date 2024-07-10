@@ -31,8 +31,8 @@ microinstructions_map = {
     "aluwriteflags": 0,
     "carryset": 0,
     "carryclear": 0,
-    "zeroset": 0,
-    "zeroclear": 0,
+    "interruptset": 0,
+    "interruptclear": 0,
     "negativeset": 0,
     "negativeclear": 0,
     "morethanset": 0,
@@ -50,14 +50,15 @@ microinstructions_map = {
     "readinstructionhigh": 0,
     "stinc": 0,
     "stdec": 0,
-    "stclr": 0,
     "aluread": 0,
-    "aluselectxhigh": 0,
+    "pcaddrsel": 0,
     "condjump": "000",
     "condjumpdesired": 0,
     "haltclock": 0,
     "pageset": 0,
     "pageclear": 0,
+    "intread": 0,
+    "intwrite": 0,
 }
 
 
@@ -76,8 +77,13 @@ def convert_microinstructions_to_binary(microinstructions):
     :param microinstructions:
     :return:
     """
+    for key in microinstructions:
+        if key not in microinstructions_map:
+            raise ValueError(f"Microinstruction {key} does not exist")
+
     microinstructions_map_copy = microinstructions_map.copy()
     microinstructions_map_copy.update(microinstructions)
+
     return f"{''.join(str(e) for e in reversed(microinstructions_map_copy.values()))}"
 
 

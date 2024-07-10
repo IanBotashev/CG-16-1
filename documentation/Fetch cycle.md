@@ -1,3 +1,3 @@
 # Fetch Cycle
-0: Program counter read, address access register write  
-1: MMU read, instruction register write
+One cycle,  
+Select program counter as the address register, read from mmu, write to instruction register.

@@ -1,17 +1,15 @@
 {
   "NOP": [{"ccclr": 1, "pcinc": 1}],
-
   "LDA": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"awrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
   "LDX": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"xwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
   "LDY": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"ywrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
   "LDZ": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"zwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
   "LDS": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"stwrite": 1, "sbwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
-
   "STA": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
   "STX": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"xread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
   "STY": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"yread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
   "STZ": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"zread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
-
+  "STI": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"intread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
   "TAX": [{"xwrite": 1, "aread": 1, "ccclr": 1, "pcinc": 1}],
   "TAY": [{"ywrite": 1, "aread": 1, "ccclr": 1, "pcinc": 1}],
   "TAZ": [{"zwrite": 1, "aread": 1, "ccclr": 1, "pcinc": 1}],
@@ -23,12 +21,10 @@
   "TXT": [{"stwrite": 1, "xread": 1, "ccclr": 1, "pcinc": 1}],
   "TTB": [{"sbread": 1, "xwrite": 1, "ccclr": 1, "pcinc": 1}],
   "TBT": [{"sbwrite": 1, "xread": 1, "ccclr": 1, "pcinc": 1}],
-
   "PHA": [{"stinc": 1, "stread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
   "PHP": [{"stinc": 1, "stread": 1, "aawrite": 1}, {"flagsread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
   "PLA": [{"stdec": 1, "stread": 1, "aawrite": 1}, {"awrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
   "PLP": [{"stdec": 1, "stread": 1, "aawrite": 1}, {"flagswrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
-
   "AND": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "01000", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "OR": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "01001", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "XOR": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "01010", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
@@ -38,35 +34,29 @@
   "UDIV": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00101", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "MUL": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00110", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "DIV": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00111", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
-
   "INC": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00010", "aluread": 1, "awrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
   "INA": [{"aluop": "00010", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "INX": [{"xread": 1, "awrite": 1}, {"aluop": "00010", "aluread": 1, "awrite": 1}, {"aread": 1, "xwrite": 1, "ccclr": 1, "pcinc": 1}],
   "INY": [{"yread": 1, "awrite": 1}, {"aluop": "00010", "aluread": 1, "awrite": 1}, {"aread": 1, "ywrite": 1, "ccclr": 1, "pcinc": 1}],
   "INZ": [{"zread": 1, "awrite": 1}, {"aluop": "00010", "aluread": 1, "awrite": 1}, {"aread": 1, "zwrite": 1, "ccclr": 1, "pcinc": 1}],
-
   "DEC": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00011", "aluread": 1, "awrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
   "DEA": [{"aluop": "00011", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "DEX": [{"xread": 1, "awrite": 1}, {"aluop": "00011", "aluread": 1, "awrite": 1}, {"aread": 1, "xwrite": 1, "ccclr": 1, "pcinc": 1}],
   "DEY": [{"yread": 1, "awrite": 1}, {"aluop": "00011", "aluread": 1, "awrite": 1}, {"aread": 1, "ywrite": 1, "ccclr": 1, "pcinc": 1}],
   "DEZ": [{"zread": 1, "awrite": 1}, {"aluop": "00011", "aluread": 1, "awrite": 1}, {"aread": 1, "zwrite": 1, "ccclr": 1, "pcinc": 1}],
-
   "LSL": [{"aluop": "01011", "aluread": 1,  "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "LSR": [{"aluop": "01100", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "ROL": [{"aluop": "01101", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "ROR": [{"aluop": "01110", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "ASL": [{"aluop": "01111", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
   "ASR": [{"aluop": "10000", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
-
   "CMP": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
   "CPX": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"awrite": 1, "xread": 1}, {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
   "CPY": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"awrite": 1, "yread": 1},  {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
   "CPZ": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"awrite": 1, "zread": 1},  {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
-
-  "JMP": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"pbcswrite": 1, "bsread": 1}, {"mmuread": 1, "pcwrite": 1, "ccclr": 1}],
-  "JSR": [{"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "pbcsread": 1}, {"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "pcread": 1}, {"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1, "ccclr": 1, "pcinc": 1}],
-  "RTS": [{"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1}, {"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "pbcswrite": 1}, {"pcinc": 1, "ccclr": 1}],
-
+  "JMP": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"pcbswrite": 1, "bsread": 1}, {"mmuread": 1, "pcwrite": 1, "ccclr": 1}],
+  "JSR": [{"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "pcbsread": 1}, {"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "pcread": 1}, {"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1, "ccclr": 1, "pcinc": 1}],
+  "RTS": [{"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1}, {"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "pcbswrite": 1}, {"pcinc": 1, "ccclr": 1}],
   "BCC": [{"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 0, "ccclr": 1}],
   "BCS": [{"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 1, "ccclr": 1}],
   "BNE": [{"readinstructionhigh": 1, "condjump": "101", "condjumpdesired": 0, "ccclr": 1}],
@@ -75,15 +65,13 @@
   "BMT": [{"readinstructionhigh": 1, "condjump": "100", "condjumpdesired": 1, "ccclr": 1}],
   "BMI": [{"readinstructionhigh": 1, "condjump": "011", "condjumpdesired": 1, "ccclr": 1}],
   "BPL": [{"readinstructionhigh": 1, "condjump": "011", "condjumpdesired": 0, "ccclr": 1}],
-  "BIZ": [{"readinstructionhigh": 1, "condjump": "010", "condjumpdesired": 1, "ccclr": 1}],
-  "BNT": [{"readinstructionhigh": 1, "condjump": "010", "condjumpdesired": 0, "ccclr": 1}],
-
   "CLC": [{"carryclear": 1, "pcinc": 1, "ccclr": 1}],
   "SEC": [{"carryset": 1, "pcinc": 1, "ccclr": 1}],
   "CLI": [{"enableinterrupts": 1, "pcinc": 1, "ccclr": 1}],
   "SEI": [{"disableinterrupts": 1, "pcinc": 1, "ccclr": 1}],
   "CPS": [{"pageclear": 1, "pcinc": 1, "ccclr": 1}],
   "SPS": [{"pageset": 1, "pcinc": 1, "ccclr": 1}],
-
-  "HLT": [{"haltclock": 1, "pcinc": 1, "ccclr": 1}]
+  "CIN": [{"interruptclear": 1, "pcinc": 1, "ccclr": 1}],
+  "HLT": [{"haltclock": 1, "pcinc": 1, "ccclr": 1}],
+  "INT": [{"pcinc": 1}, {"pcaddrsel":1, "mmuread": 1, "intwrite": 1, "ccclr": 1, "interruptset": 1}]
 }

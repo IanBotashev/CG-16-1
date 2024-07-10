@@ -1,6 +1,5 @@
 {
   "values": [
-    {"pcread": 1, "aawrite": 1},
-    {"mmuread": 1, "irwrite": 1}
+    {"pcaddrsel": 1, "mmuread": 1, "irwrite": 1}
   ]
 }

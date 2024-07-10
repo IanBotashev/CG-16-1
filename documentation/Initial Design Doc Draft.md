@@ -14,8 +14,6 @@ Computer,  Graphical-16 bit-1st version
 - float support
 - 32 MiB of RAM. 8-bit bank select with 16 bit-wide addresses and 2 words per address. Very last bank (`11111111`) is graphic ram.
 - Interrupts 
-     - hardware interrupt 
-     - kernel call 
 - Stack
 - Flags
 	- Zero
