@@ -1,6 +1,6 @@
 {
   "values": [
     {"pcwrite": 1},
-    {"pcbswrite": 1, "interruptclear": 1, "ccclr": 1}
+    {"pcbswrite": 1, "ccclr": 1}
   ]
 }
