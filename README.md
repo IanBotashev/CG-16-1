@@ -25,4 +25,3 @@ Work in progress...
 - Addressing modes
 - Allow normal fetch to be 1 cycle, interrupt fetch to be 2
 - Refactor all instructions to use new mi `pcaddrsel`
-- Fix weird bug where the second interrupt instruction doesn't clear the control counter-
