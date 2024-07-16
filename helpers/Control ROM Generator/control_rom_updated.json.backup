@@ -1,0 +1,107 @@
+{
+  "NOP": {
+    "code": [{"ccclr": 1, "pcinc": 1}],
+    "usage": "NOP",
+    "desc": "No operation",
+    "tested": true
+  },
+
+  "LDA_immediate":
+  {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDA `#1`",
+    "desc": "Load `#1` into the accumulator",
+    "tested": false
+  },
+  "LDA_absolute":
+  {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"awrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDA `$1`",
+    "desc": "Load value from `$1` into the accumulator",
+    "tested": false
+  },
+
+  "LDX_immediate":
+  {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "xwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDX `#1`",
+    "desc": "Load `#1` into the X register",
+    "tested": false
+  },
+  "LDX_absolute":
+  {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"xwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDX `$1`",
+    "desc": "Load value from `$1` into the X register",
+    "tested": false
+  },
+
+  "LDY_immediate":
+  {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "ywrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDY `#1`",
+    "desc": "Load `#1` into the Y register",
+    "tested": false
+  },
+  "LDY_absolute":
+  {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"ywrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDY `$1`",
+    "desc": "Load value from `$1` into the Y register",
+    "tested": false
+  },
+
+  "LDZ_immediate":
+  {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "zwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDZ `#1`",
+    "desc": "Load `#1` into the Z register",
+    "tested": false
+  },
+  "LDZ_absolute":
+  {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"zwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDZ `$1`",
+    "desc": "Load value from `$1` into the Z register",
+    "tested": false
+  },
+
+  "LDS_immediate":
+  {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "stwrite": 1, "sbwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDS `#1`",
+    "desc": "Load `#1` into the stack top and base registers",
+    "tested": false
+  },
+  "LDS_absolute":
+  {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"stwrite": 1, "sbwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDS `$1`",
+    "desc": "Load value from `$1` into the stack top and base registers",
+    "tested": false
+  },
+  "STA_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`",
+    "desc": "Load value from Accumulator into `$1`",
+    "tested": false
+  },
+  "STA_indirectx": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"xread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`, X",
+    "desc": "Load value from an address, using `$1` as the bank select and value in X register as address into accumulator",
+    "tested": false
+  },
+  "STA_indirecty": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"yread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`, Y",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Y register as address into accumulator",
+    "tested": false
+  },
+  "STA_indirectz": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"zread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`, Z",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Z register as address into accumulator",
+    "tested": false
+  }
+}

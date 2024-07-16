@@ -5,12 +5,544 @@
     "desc": "No operation",
     "tested": true
   },
-
-  "LDA_immediate":
-  {
+  "LDA_immediate": {
     "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
     "usage": "LDA `#1`",
     "desc": "Load `#1` into the accumulator",
+    "tested": false
+  },
+  "LDA_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"awrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDA `$1`",
+    "desc": "Load value from `$1` into the accumulator",
+    "tested": false
+  },
+  "LDX_immediate": {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "xwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDX `#1`",
+    "desc": "Load `#1` into the X register",
+    "tested": false
+  },
+  "LDX_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"xwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDX `$1`",
+    "desc": "Load value from `$1` into the X register",
+    "tested": false
+  },
+  "LDY_immediate": {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "ywrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDY `#1`",
+    "desc": "Load `#1` into the Y register",
+    "tested": false
+  },
+  "LDY_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"ywrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDY `$1`",
+    "desc": "Load value from `$1` into the Y register",
+    "tested": false
+  },
+  "LDZ_immediate": {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "zwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDZ `#1`",
+    "desc": "Load `#1` into the Z register",
+    "tested": false
+  },
+  "LDZ_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"zwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDZ `$1`",
+    "desc": "Load value from `$1` into the Z register",
+    "tested": false
+  },
+  "LDS_immediate": {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "stwrite": 1, "sbwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDS `#1`",
+    "desc": "Load `#1` into the stack top and base registers",
+    "tested": false
+  },
+  "LDS_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"stwrite": 1, "sbwrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LDS `$1`",
+    "desc": "Load value from `$1` into the stack top and base registers",
+    "tested": false
+  },
+  "STA_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`",
+    "desc": "Load value from Accumulator into `$1`",
+    "tested": false
+  },
+  "STA_indirectx": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"xread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`, X",
+    "desc": "Load value from an address, using `$1` as the bank select and value in X register as address into accumulator",
+    "tested": false
+  },
+  "STA_indirecty": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"yread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`, Y",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Y register as address into accumulator",
+    "tested": false
+  },
+  "STA_indirectz": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"zread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`, Z",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Z register as address into accumulator",
+    "tested": false
+  },
+  "STX_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"xread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STX `$1`",
+    "desc": "Load value from X register into `$1`",
+    "tested": false
+  },
+  "STX_indirecty": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"yread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"xread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STX `$1`, Y",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Y register as address into X register",
+    "tested": false
+  },
+  "STX_indirectz": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"zread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"xread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STX `$1`, Z",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Y register as address into X register",
+    "tested": false
+  },
+  "STY_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"yread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STY `$1`",
+    "desc": "Load value from Y register into `$1`",
+    "tested": false
+  },
+  "STY_indirectx": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"xread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"yread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STY `$1`, X",
+    "desc": "Load value from an address, using `$1` as the bank select and value in X register as address into Y register",
+    "tested": false
+  },
+  "STY_indirectz": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"zread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"yread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STY `$1`, Z",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Z register as address into Y register",
+    "tested": false
+  },
+  "STZ_absolute": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"zread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STZ `$1`",
+    "desc": "Load value from Z register into `$1`",
+    "tested": false
+  },
+  "STZ_indirectx": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"xread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"zread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STZ `$1`, X",
+    "desc": "Load value from an address, using `$1` as the bank select and value in X register as address into Z register",
+    "tested": false
+  },
+  "STZ_indirecty": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"yread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"zread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STZ `$1`, Y",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Y register as address into Z register",
+    "tested": false
+  },
+  "STI": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"intread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STI `$1`",
+    "desc": "Load value from Interrupt Register into `$1`",
+    "tested": false
+  },
+  "STI_indirectx": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"xread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"intread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`, X",
+    "desc": "Load value from an address, using `$1` as the bank select and value in X register as address into interrupt register",
+    "tested": false
+  },
+  "STI_indirecty": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"yread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"intread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`, Y",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Y register as address into interrupt register",
+    "tested": false
+  },
+  "STI_indirectz": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1}, {"zread": 1, "aawrite": 1}, {"mmuread": 1, "aawrite": 1}, {"intread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "STA `$1`, Z",
+    "desc": "Load value from an address, using `$1` as the bank select and value in Z register as address into interrupt register",
+    "tested": false
+  },
+  "TAX": {
+    "code": [{"xwrite": 1, "aread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TAX",
+    "desc": "Transfer value from Accumulator into X",
+    "tested": false
+  },
+  "TAY": {
+    "code": [{"ywrite": 1, "aread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TAY",
+    "desc": "Transfer value from Accumulator into Y",
+    "tested": false
+  },
+  "TAZ": {
+    "code": [{"zwrite": 1, "aread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TAZ",
+    "desc": "Transfer value from Accumulator into Z",
+    "tested": false
+  },
+  "TXA": {
+    "code": [{"yread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TXA",
+    "desc": "Transfer value from X into accumulator",
+    "tested": false
+  },
+  "TYA": {
+    "code": [{"yread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TYA",
+    "desc": "Transfer value from Y into accumulator",
+    "tested": false
+  },
+  "TZA": {
+    "code": [{"zread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TZA",
+    "desc": "Transfer value from Z into accumulator",
+    "tested": false
+  },
+  "TBA": {
+    "code": [{"bsread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TBA",
+    "desc": "Transfer value from Bank Select Register into Accumulator",
+    "tested": false
+  },
+  "TTX": {
+    "code": [{"stread": 1, "xwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TTX",
+    "desc": "Transfer Stack Top Pointer into X",
+    "tested": false
+  },
+  "TXT": {
+    "code": [{"stwrite": 1, "xread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TXT",
+    "desc": "Transfer X into Stack Top Pointer",
+    "tested": false
+  },
+  "TTB": {
+    "code": [{"sbread": 1, "xwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TTB",
+    "desc": "Transfer Stack Base Pointer into X",
+    "tested": false
+  },
+  "TBT": {
+    "code": [{"sbwrite": 1, "xread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "TBT",
+    "desc": "Transfer X into Stack Base Pointer",
+    "tested": false
+  },
+  "PHA": {
+    "code": [{"stinc": 1, "stread": 1, "aawrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "PHA",
+    "desc": "Push Accumulator onto stack",
+    "tested": false
+  },
+  "PHP": {
+    "code": [{"stinc": 1, "stread": 1, "aawrite": 1}, {"flagsread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "PHP",
+    "desc": "Push Processor Flags onto stack",
+    "tested": false
+  },
+  "PLA": {
+    "code": [{"stdec": 1, "stread": 1, "aawrite": 1}, {"awrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "PLA",
+    "desc": "Pull Accumulator from stack",
+    "tested": false
+  },
+  "PLP": {
+    "code": [{"stdec": 1, "stread": 1, "aawrite": 1}, {"flagswrite": 1, "mmuread": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "PLP",
+    "desc": "Pull processor flags from stack",
+    "tested": false
+  },
+  "AND": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "01000", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "AND `$1`",
+    "desc": "Logical AND on the contents of the Accumulator using `$1` result stored in the accumulator",
+    "tested": false
+  },
+  "OR": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "01001", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "OR `$1`",
+    "desc": "Logical OR on the contents of the Accumulator using `$1`, result stored in the accumulator",
+    "tested": false
+  },
+  "XOR": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "01010", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "XOR `$1`",
+    "desc": "Logical OR on the contents of the Accumulator using `$1`, result stored in the accumulator",
+    "tested": false
+  },
+  "ADC": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00000", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "ADC `$1`",
+    "desc": "Adds the contents of `$1` and carry bit to the accumulator. `A + $1`",
+    "tested": false
+  },
+  "SBC": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00001", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "SBC `$1`",
+    "desc": "Subtracts the contents of `$1` and carry bit from the accumulator. `A - $1`",
+    "tested": false
+  },
+  "UMUL": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00100", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "UMUL `$1`",
+    "desc": "Unsigned Multiplies the contents of `$1` with the accumulator `A * $1`",
+    "tested": false
+  },
+  "UDIV": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00101", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "UDIV `$1`",
+    "desc": "Unsigned Divides the accumulator by the contents of `$1`  `A / $1`",
+    "tested": false
+  },
+  "MUL": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00110", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "MUL `$1`",
+    "desc": "Signed Multiplies the contents of `$1` with the accumulator `A * $1`",
+    "tested": false
+  },
+  "DIV": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00111", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "DIV `$1`",
+    "desc": "Signed Divides the accumulator by the contents of `$1`  `A / $1`",
+    "tested": false
+  },
+  "INC": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00010", "aluread": 1, "awrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "INC `$1`",
+    "desc": "Increments the contents of `$1`",
+    "tested": false
+  },
+  "INA": {
+    "code": [{"aluop": "00010", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "INA",
+    "desc": "Increments the contents of the accumulator",
+    "tested": false
+  },
+  "INX": {
+    "code": [{"xread": 1, "awrite": 1}, {"aluop": "00010", "aluread": 1, "awrite": 1}, {"aread": 1, "xwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "INX",
+    "desc": "Increments the contents of the X register",
+    "tested": false
+  },
+  "INY": {
+    "code": [{"yread": 1, "awrite": 1}, {"aluop": "00010", "aluread": 1, "awrite": 1}, {"aread": 1, "ywrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "INY",
+    "desc": "Increments the contents of the Y register",
+    "tested": false
+  },
+  "INZ": {
+    "code": [{"zread": 1, "awrite": 1}, {"aluop": "00010", "aluread": 1, "awrite": 1}, {"aread": 1, "zwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "INZ",
+    "desc": "Increments the contents of the Z register",
+    "tested": false
+  },
+  "DEC": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluop": "00011", "aluread": 1, "awrite": 1}, {"aread": 1, "mmuwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "DEC `$1`",
+    "desc": "Increments the contents of `$1`",
+    "tested": false
+  },
+  "DEA": {
+    "code": [{"aluop": "00011", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "DEA",
+    "desc": "Decrements the contents of the accumulator",
+    "tested": false
+  },
+  "DEX": {
+    "code": [{"xread": 1, "awrite": 1}, {"aluop": "00011", "aluread": 1, "awrite": 1}, {"aread": 1, "xwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "DEX",
+    "desc": "Decrements the contents of the X register",
+    "tested": false
+  },
+  "DEY": {
+    "code": [{"yread": 1, "awrite": 1}, {"aluop": "00011", "aluread": 1, "awrite": 1}, {"aread": 1, "ywrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "DEY",
+    "desc": "Decrements the contents of the Y register",
+    "tested": false
+  },
+  "DEZ": {
+    "code": [{"zread": 1, "awrite": 1}, {"aluop": "00011", "aluread": 1, "awrite": 1}, {"aread": 1, "zwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "DEZ",
+    "desc": "Decrements the contents of the Z register",
+    "tested": false
+  },
+  "LSL": {
+    "code": [{"aluop": "01011", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LSL",
+    "desc": "Logical shift left of the Accumulator by 1 bit.",
+    "tested": false
+  },
+  "LSR": {
+    "code": [{"aluop": "01100", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "LSR",
+    "desc": "Logical shift right of the Accumulator by 1 bit.",
+    "tested": false
+  },
+  "ROL": {
+    "code": [{"aluop": "01101", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "ROL",
+    "desc": "Rotate left the Accumulator by 1 bit.",
+    "tested": false
+  },
+  "ROR": {
+    "code": [{"aluop": "01110", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "ROR",
+    "desc": "Rotate right the Accumulator by 1 bit.",
+    "tested": false
+  },
+  "ASL": {
+    "code": [{"aluop": "01111", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "ASL",
+    "desc": "Arithmetic shift left of the Accumulator by 1 bit.",
+    "tested": false
+  },
+  "ASR": {
+    "code": [{"aluop": "10000", "aluread": 1, "awrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "ASR",
+    "desc": "Arithmetic shift right of the Accumulator by 1 bit.",
+    "tested": false
+  },
+  "CMP": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "CMP `$1`",
+    "desc": "Compare the value of the Accumulator to `$1`.",
+    "tested": false
+  },
+  "CPX": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"awrite": 1, "xread": 1}, {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "CPX `$1`",
+    "desc": "Compare the value of the X register to `$1`",
+    "tested": false
+  },
+  "CPY": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"awrite": 1, "yread": 1}, {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "CPY `$1`",
+    "desc": "Compare the value of the Y register to `$1`",
+    "tested": false
+  },
+  "CPZ": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"awrite": 1, "zread": 1}, {"mmuread": 1, "aluwriteflags": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "CPZ `$1`",
+    "desc": "Compare the value of the Z register to `$1`",
+    "tested": false
+  },
+  "JMP": {
+    "code": [{"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"pcbswrite": 1, "bsread": 1}, {"mmuread": 1, "pcwrite": 1, "ccclr": 1}],
+    "usage": "JMP",
+    "desc": "Set the program counter to `$1`",
+    "tested": false
+  },
+  "JSR": {
+    "code": [{"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "pcbsread": 1}, {"stinc": 1, "stread": 1, "aawrite": 1}, {"mmuwrite": 1, "pcread": 1}, {"readinstructionhigh": 1, "bswrite": 1, "pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "aawrite": 1}, {"pcbswrite": 1, "bsread": 1},  {"mmuread": 1, "pcwrite": 1, "ccclr": 1, "pcinc": 1}],
+    "usage": "JSR",
+    "desc": "Jump to subroutine. Push the PCBS then PC onto stack then set the PC to `$1`",
+    "tested": false
+  },
+  "RTS": {
+    "code": [{"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "pcwrite": 1}, {"stdec": 1, "stread": 1, "aawrite": 1}, {"mmuread": 1, "pcbswrite": 1}, {"pcinc": 1, "ccclr": 1}],
+    "usage": "RTS",
+    "desc": "Return from subroutine. Pull PC then PCBS value from top of stack.",
+    "tested": false
+  },
+  "BCC": {
+    "code": [{"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 0, "ccclr": 1}],
+    "usage": "BCC `$1`",
+    "desc": "Branch to `$1` if the carry flag is 0",
+    "tested": false
+  },
+  "BCS": {
+    "code": [{"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 1, "ccclr": 1}],
+    "usage": "BCS `$1`",
+    "desc": "Branch to `$1` if the carry flag is 1",
+    "tested": false
+  },
+  "BNE": {
+    "code": [{"readinstructionhigh": 1, "condjump": "101", "condjumpdesired": 0, "ccclr": 1}],
+    "usage": "BNE `$1`",
+    "desc": "Branch to `$1` if the equal flag is 0",
+    "tested": false
+  },
+  "BEQ": {
+    "code": [{"readinstructionhigh": 1, "condjump": "101", "condjumpdesired": 1, "ccclr": 1}],
+    "usage": "BEQ `$1`",
+    "desc": "Branch to `$1` if the equal flag is 1",
+    "tested": false
+  },
+  "BLT": {
+    "code": [{"readinstructionhigh": 1, "condjump": "110", "condjumpdesired": 1, "ccclr": 1}],
+    "usage": "BLT `$1`",
+    "desc": "Branch to `$1` if the less than flag is 1",
+    "tested": false
+  },
+  "BMT": {
+    "code": [{"readinstructionhigh": 1, "condjump": "100", "condjumpdesired": 1, "ccclr": 1}],
+    "usage": "BMT `$1`",
+    "desc": "Branch to `$1` if the more than flag is 1",
+    "tested": false
+  },
+  "BMI": {
+    "code": [{"readinstructionhigh": 1, "condjump": "011", "condjumpdesired": 1, "ccclr": 1}],
+    "usage": "BMI `$1`",
+    "desc": "Branch to `$1` if the negative flag is 1",
+    "tested": false
+  },
+  "BPL": {
+    "code": [{"readinstructionhigh": 1, "condjump": "011", "condjumpdesired": 0, "ccclr": 1}],
+    "usage": "BPL `$1`",
+    "desc": "Branch to `$1` if the negative flag is 0",
+    "tested": false
+  },
+  "CLC": {
+    "code": [{"carryclear": 1, "pcinc": 1, "ccclr": 1}],
+    "usage": "CLC",
+    "desc": "Clear clarry flag",
+    "tested": false
+  },
+  "SEC": {
+    "code": [{"carryset": 1, "pcinc": 1, "ccclr": 1}],
+    "usage": "SEC",
+    "desc": "Set carry flag",
+    "tested": false
+  },
+  "CLI": {
+    "code": [{"enableinterrupts": 1, "pcinc": 1, "ccclr": 1}],
+    "usage": "CLI",
+    "desc": "Clear interrupt disable",
+    "tested": false
+  },
+  "SEI": {
+    "code": [{"disableinterrupts": 1, "pcinc": 1, "ccclr": 1}],
+    "usage": "SEI",
+    "desc": "Set interrupt disable",
+    "tested": false
+  },
+  "CPS": {
+    "code": [{"pageclear": 1, "pcinc": 1, "ccclr": 1}],
+    "usage": "CPS",
+    "desc": "Clear page select",
+    "tested": false
+  },
+  "SPS": {
+    "code": [{"pageset": 1, "pcinc": 1, "ccclr": 1}],
+    "usage": "SPS",
+    "desc": "Set Page Select",
+    "tested": false
+  },
+  "HLT": {
+    "code": [{"haltclock": 1, "pcinc": 1, "ccclr": 1}],
+    "usage": "HLT",
+    "desc": "Halt the processor",
+    "tested": false
+  },
+  "INT": {
+    "code": [{"pcinc": 1}, {"pcaddrsel": 1, "mmuread": 1, "intwrite": 1, "ccclr": 1, "interruptset": 1}],
+    "usage": "INT `#1`",
+    "desc": "Raises a kernel interrupt of value `#1`",
     "tested": false
   }
 }

@@ -102,5 +102,5 @@ Which leaves 3 bytes for operands.
 | CIN         |        | Clear Interrupt                                                                            |       |        |           |
 | HLT         |        | Halt the processor                                                                         |       |        |           |
 | INT `#1`    |        | Raises a kernel interrupt of value `#1`                                                    |       |        |           |
-| RTI         |        | Return from interrupt                                                                      |       |        |           |
+
 
