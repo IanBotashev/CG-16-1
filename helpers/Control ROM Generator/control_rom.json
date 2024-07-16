@@ -450,49 +450,49 @@
     "tested": false
   },
   "BCC": {
-    "code": [{"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 0, "ccclr": 1}],
+    "code": [{"pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"pcbsread": 1, "bswrite": 1}, {"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 0}, {"condjump": "001", "condjumpdesired": 0, "pcseljump": 1, "mmuread": 1, "ccclr": 1}],
     "usage": "BCC `$1`",
     "desc": "Branch to `$1` if the carry flag is 0",
     "tested": false
   },
   "BCS": {
-    "code": [{"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 1, "ccclr": 1}],
+    "code": [{"pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"pcbsread": 1, "bswrite": 1}, {"readinstructionhigh": 1, "condjump": "001", "condjumpdesired": 1}, {"condjump": "001", "condjumpdesired": 1, "pcseljump": 1, "mmuread": 1, "ccclr": 1}],
     "usage": "BCS `$1`",
     "desc": "Branch to `$1` if the carry flag is 1",
     "tested": false
   },
   "BNE": {
-    "code": [{"readinstructionhigh": 1, "condjump": "101", "condjumpdesired": 0, "ccclr": 1}],
+    "code": [{"pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"pcbsread": 1, "bswrite": 1}, {"readinstructionhigh": 1, "condjump": "101", "condjumpdesired": 0}, {"condjump": "101", "condjumpdesired": 0, "pcseljump": 1, "mmuread": 1, "ccclr": 1}],
     "usage": "BNE `$1`",
     "desc": "Branch to `$1` if the equal flag is 0",
     "tested": false
   },
   "BEQ": {
-    "code": [{"readinstructionhigh": 1, "condjump": "101", "condjumpdesired": 1, "ccclr": 1}],
+    "code": [{"pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"pcbsread": 1, "bswrite": 1}, {"readinstructionhigh": 1, "condjump": "101", "condjumpdesired": 1}, {"condjump": "101", "condjumpdesired": 1, "pcseljump": 1, "mmuread": 1, "ccclr": 1}],
     "usage": "BEQ `$1`",
     "desc": "Branch to `$1` if the equal flag is 1",
     "tested": false
   },
   "BLT": {
-    "code": [{"readinstructionhigh": 1, "condjump": "110", "condjumpdesired": 1, "ccclr": 1}],
+    "code": [{"pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"pcbsread": 1, "bswrite": 1}, {"readinstructionhigh": 1, "condjump": "110", "condjumpdesired": 1}, {"condjump": "110", "condjumpdesired": 1, "pcseljump": 1, "mmuread": 1, "ccclr": 1}],
     "usage": "BLT `$1`",
     "desc": "Branch to `$1` if the less than flag is 1",
     "tested": false
   },
   "BMT": {
-    "code": [{"readinstructionhigh": 1, "condjump": "100", "condjumpdesired": 1, "ccclr": 1}],
+    "code": [{"pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"pcbsread": 1, "bswrite": 1}, {"readinstructionhigh": 1, "condjump": "100", "condjumpdesired": 1}, {"condjump": "100", "condjumpdesired": 1, "pcseljump": 1, "mmuread": 1, "ccclr": 1}],
     "usage": "BMT `$1`",
     "desc": "Branch to `$1` if the more than flag is 1",
     "tested": false
   },
   "BMI": {
-    "code": [{"readinstructionhigh": 1, "condjump": "011", "condjumpdesired": 1, "ccclr": 1}],
+    "code": [{"pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"pcbsread": 1, "bswrite": 1}, {"readinstructionhigh": 1, "condjump": "011", "condjumpdesired": 1}, {"condjump": "011", "condjumpdesired": 1, "pcseljump": 1, "mmuread": 1, "ccclr": 1}],
     "usage": "BMI `$1`",
     "desc": "Branch to `$1` if the negative flag is 1",
     "tested": false
   },
   "BPL": {
-    "code": [{"readinstructionhigh": 1, "condjump": "011", "condjumpdesired": 0, "ccclr": 1}],
+    "code": [{"pcinc": 1}, {"pcread": 1, "aawrite": 1}, {"pcbsread": 1, "bswrite": 1}, {"readinstructionhigh": 1, "condjump": "011", "condjumpdesired": 0}, {"condjump": "011", "condjumpdesired": 0, "pcseljump": 1, "mmuread": 1, "ccclr": 1}],
     "usage": "BPL `$1`",
     "desc": "Branch to `$1` if the negative flag is 0",
     "tested": false

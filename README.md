@@ -20,11 +20,9 @@ Work in progress...
 
 
 ## Todo:
-- Pipe ALU output high to the X processor
+- Pipe ALU output high to the X register
 - Assembler
 - Emulator
 - Addressing modes
 - Allow normal fetch to be 1 cycle, interrupt fetch to be 2
-- Refactor all instructions to use new mi `pcaddrsel`
-- Allow branches to also write to `PCBS`
 - Push PC and PCBS onto stack when interrupted

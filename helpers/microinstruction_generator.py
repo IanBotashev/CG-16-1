@@ -17,7 +17,7 @@ microinstructions_map = {
     "pcclr": 0,
     "pcbsread": 0,
     "pcbswrite": 0,
-    "pcbsclr": 0,
+    "pcseljump": 0,
     "irread": 0,
     "irwrite": 0,
     "stread": 0,
